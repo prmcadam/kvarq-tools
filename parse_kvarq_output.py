@@ -62,7 +62,7 @@ def resistanceLoci(res):
 
 out_file=open(sys.argv[1].split(".")[0]+"_parsed.csv","w")
 
-with open(kvarq_table,'r') as in_file:
+with open(kvarq_table,'rU') as in_file:
 	out_file.write("Isolate,Lineage,")
 	resistant_to=returnResistance("HEADER")
 	for x in resistant_to:
