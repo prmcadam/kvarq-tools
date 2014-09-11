@@ -2,6 +2,7 @@
 Paul McAdam
 4th August 2014
 usage parse_kvarq_output.py <collated scan table>
+input table must be tab delimited with no header
 """
 
 
@@ -72,7 +73,7 @@ with open(kvarq_table,'rU') as in_file:
 		out_file.write(y+",")
 	out_file.write("\n")
 	lines=in_file.readlines()
-	for line in lines[1:]:
+	for line in lines:
 		isolate, lineage, resistance=line.split('\t')[0], line.split('\t')[1], line.split('\t')[2]
 		isolate=isolate.replace("/home/UNIMELB/paulm-u/TB_sequencing_data/all_data/","")
 		isolate=isolate.split("_")[0]
@@ -95,6 +96,8 @@ out_file.close()
 """
 To add:
 positional SNPs identified
+determine if table has header
+determine delimiter
 """
 
 streptomycin={}
@@ -103,4 +106,3 @@ isoniazid={}
 fluoroquinolone={}
 rifampicin={}
 kanamycin={}
-
